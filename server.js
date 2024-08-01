@@ -35,6 +35,23 @@ app.post("/post", async (req,res) => {
     }
 });
 
+
+app.post("/edit-form", (req,res) => {
+    try {
+        res.render("edit.ejs",{
+            formData: {
+                id: req.body["id"],
+                title: req.body["title"],
+                content: req.body["content"],
+                author: req.body["author"]
+            }
+        });
+    } catch (error) {
+        res.render("failure.ejs",{
+            error: `There was error getting the edit form`
+        });
+    }
+});
 app.post("/edit", async (req,res) => {
     try {
         const id = parseInt(req.body.id);

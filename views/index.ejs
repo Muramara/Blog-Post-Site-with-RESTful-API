@@ -14,17 +14,13 @@
                 <p class="content-card"><%= posts[index].content %></p>
                 <p class="author-card"><%= posts[index].author %></p>
                 <div class="blog-btn-card">
-                    <form action="/edit-form" method="get">
+                    <form method="post">
+                        <input type="text" name="id" value="<%= posts[index].id %>" hidden>
                         <input type="text" name="title" value="<%= posts[index].title %>" hidden>
                         <input type="text" name="content" value="<%= posts[index].content %>" hidden>
                         <input type="text" name="author" value="<%= posts[index].author %>" hidden>
-                        <input type="submit" value="Edit" class="edit-btn">
-                    </form>
-                    <form action="/delete" method="post">
-                        <input type="text" name="title" value="<%= posts[index].title %>" hidden>
-                        <input type="text" name="content" value="<%= posts[index].content %>" hidden>
-                        <input type="text" name="author" value="<%= posts[index].author %>" hidden>
-                        <input type="submit" value="delete" class="delete-btn">
+                        <input type="submit" value="Edit" class="edit-btn" formaction="/edit-form">
+                        <input type="submit" value="delete" class="delete-btn" formaction="/delete">
                     </form>
                 </div>
             </div>
