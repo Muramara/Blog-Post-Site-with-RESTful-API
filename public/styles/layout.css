@@ -1,0 +1,70 @@
+/* index.ejs layout */
+.blog-card {
+    border: 2px solid black;
+    width: 500px;
+    margin: 20px;
+    padding: 10px;
+}
+.blog-card > p {
+    border: 1px solid black;
+}
+
+.blog-btns-card{
+    display: flex;
+    justify-content: end;
+}
+
+
+/* post.ejs layout style */
+.post-body-div {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    align-items: center;
+}
+.post-form {
+    border: 3px solid black;
+    width: 50%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.post-form input{
+    margin: 10px;
+}
+
+
+/* edit.ejs layout style */
+.edit-body-div {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.edit-form {
+    width: 75%;
+    height: 75%;
+    border: 5px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.txt {
+    width: 75%;
+    margin: 10px;
+}
+.content-input {
+    height: 200px;
+}
+.save-btn {
+    margin-left: 10px;
+    padding: 2px;
+}
+
+
+/* generic */
+.btn{
+    margin: 2px;
+    padding: 2px;
+}

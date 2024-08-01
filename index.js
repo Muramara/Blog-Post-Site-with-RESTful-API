@@ -38,16 +38,13 @@ app.post("/new/:title/:content/:author", (req,res) => {
 app.patch("/edit/:id/:title/:content/:author", (req,res) => {
     try {
         const id = parseInt(req.params.id);
-        console.log(req.params.title);
         const editedPost = {
             id: id,
             title: req.params.title,
             content: req.params.content,
             author: req.params.author
         };
-        console.log(editedPost);
         const searchIndex = posts.findIndex((post) => post.id === id);
-        console.log(searchIndex);
         posts[searchIndex] = editedPost;
         res.json(posts[searchIndex]);
     } catch (error) {

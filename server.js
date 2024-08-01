@@ -14,7 +14,6 @@ let result = [];
 app.get("/", async (req,res) => {
     try {
         const response = await axios.get("http://localhost:1304");
-        console.log(response.data);
         res.render("index.ejs",{
             posts: response.data
         });

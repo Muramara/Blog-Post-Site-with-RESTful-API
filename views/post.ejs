@@ -1,6 +1,12 @@
-<form action="/post" method="post">
-    <input type="text" name="title" placeholder="Enter Title..."><br>
-    <input type="text" name="content" placeholder="Enter Content..."><br>
-    <input type="text" name="author" placeholder="Enter Author..."><br>
-    <input type="submit" value="Post">
-</form>
+<header><%- include("partials/header.ejs") %></header>
+
+<div class="post-body-div">
+    <div class="post-form">
+        <form action="/post" method="post">
+            <input type="text" name="title" placeholder="Enter Title..."><br>
+            <input type="text" name="content" placeholder="Enter Content..."><br>
+            <input type="text" name="author" placeholder="Enter Author..."><br>
+            <input type="submit" value="Post" class="post-btn btn">
+        </form>
+    </div>
+</div>

@@ -5,22 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog Site</title>
 </head>
-<a href="/post-form"><button>Make new post</button></a>
 <body>
+    <header><%- include("partials/header.ejs") %></header>
+
+    <a href="/post-form" class="make-btn btn"><button>Make new post</button></a>
+
     <% if (locals.posts) { %>
         <% for (let index = 0; index < posts.length; index++) { %>
             <div class="blog-card">
-                <p class="title-card"><%= posts[index].title %></p>
+                <p name="title-par" class="title-card"><strong>Title:</strong> <%= posts[index].title.toUpperCase() %></p>
                 <p class="content-card"><%= posts[index].content %></p>
-                <p class="author-card"><%= posts[index].author %></p>
-                <div class="blog-btn-card">
+                <p class="author-card"><strong>Author:</strong> <%= posts[index].author %></p>
+                <div class="blog-btns-card">
                     <form method="post">
                         <input type="text" name="id" value="<%= posts[index].id %>" hidden>
                         <input type="text" name="title" value="<%= posts[index].title %>" hidden>
                         <input type="text" name="content" value="<%= posts[index].content %>" hidden>
                         <input type="text" name="author" value="<%= posts[index].author %>" hidden>
-                        <input type="submit" value="Edit" class="edit-btn" formaction="/edit-form">
-                        <input type="submit" value="delete" class="delete-btn" formaction="/delete">
+                        <input type="submit" value="Edit" class="edit-btn btn" formaction="/edit-form">
+                        <input type="submit" value="Delete" class="delete-btn btn" formaction="/delete">
                     </form>
                 </div>
             </div>
