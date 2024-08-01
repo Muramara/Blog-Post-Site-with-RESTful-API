@@ -8,9 +8,9 @@
 <body>
     <header><%- include("partials/header.ejs") %></header>
 
-    <a href="/post-form" class="make-btn btn"><button>Make new post</button></a>
-
     <% if (locals.posts) { %>
+        <a href="/post-form" class="make-btn btn"><button>Make new post</button></a>
+
         <% for (let index = 0; index < posts.length; index++) { %>
             <div class="blog-card">
                 <p name="title-par" class="title-card"><strong>Title:</strong> <%= posts[index].title.toUpperCase() %></p>
@@ -28,8 +28,27 @@
                 </div>
             </div>
         <% } %>
-    <% } else { %>
-        h
+    <% } %>
+    <% if (locals.success) { %>
+        <div class="message-div">
+            <div>
+                <p><%= message %></p>
+                <a href="/" class="return-btn btn"><button>Back to Homepage</button></a>
+            </div>
+        </div>
+    <% } %>
+    <% if (locals.failure) { %>
+        <div class="message-div">
+            <div>
+                <p><%= err %></p>
+                <a href="/" class="return-btn btn"><button>Back to Homepage</button></a>
+            </div>
+        </div>
+    <% } %>
+    <% if (locals.error) { %>
+        <div class="message-div">
+            <p><%= error %></p>
+        </div>
     <% } %>
 </body>
 </html>

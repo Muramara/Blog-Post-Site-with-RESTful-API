@@ -14,11 +14,12 @@ let result = [];
 app.get("/", async (req,res) => {
     try {
         const response = await axios.get("http://localhost:1304");
-        res.render("index.ejs",{
+        res.render("index.ejs",
+            {
             posts: response.data
         });
     } catch (error) {
-        res.render("failure.ejs",{
+        res.render("index.ejs",{
             error: `There was an error getting the content`
         });
     }
@@ -26,7 +27,9 @@ app.get("/", async (req,res) => {
 
 app.get("/post-form", (req,res) => {
     try {
-        res.render("post.ejs");
+        res.render("post.ejs",{
+            posting: true
+        });
     } catch (error) {
         res.render("failure.ejs",{
             error: `There was an error getting the post form`
@@ -39,11 +42,13 @@ app.post("/post", async (req,res) => {
         const content = req.body.content;
         const author = req.body.author;
         await axios.post("http://localhost:1304/new/"+title+"/"+content+"/"+author);
-        res.render("success.ejs",{
+        res.render("post.ejs",{
+            success: true,
             message: `Post successfully recorded`
         });
     } catch (error) {
-        res.render("failure.ejs",{
+        res.render("post.ejs",{
+            failure: true,
             error: `There was an error posting the content`
         });
     }
@@ -73,11 +78,13 @@ app.post("/edit", async (req,res) => {
         const content = req.body.content;
         const author = req.body.author;
         await axios.patch("http://localhost:1304/edit/"+id+"/"+title+"/"+content+"/"+author);
-        res.render("success.ejs",{
+        res.render("edit.ejs",{
+            success: true,
             message: `Post successfully edited`
         });
     } catch (error) {
         res.render("failure.ejs",{
+            failure: true,
             error: `There was an error editing the content`
         });
     }
@@ -87,12 +94,14 @@ app.post("/delete", async (req,res) => {
     try {
         const id = parseInt(req.body.id);
         const response = await axios.delete("http://localhost:1304/delete/"+id);
-        res.render("success.ejs",{
+        res.render("index.ejs",{
+            success: true,
             message: `Post successfully deleted`
         });
     } catch (error) {
         res.render("failure.ejs",{
-            error: `There was an error deleting the content`
+            failure: true,
+            err: `There was an error deleting the content`
         });
     }
 });

@@ -7,11 +7,18 @@
 }
 .blog-card > p {
     border: 1px solid black;
+    padding: 5px;
 }
 
 .blog-btns-card{
     display: flex;
     justify-content: end;
+}
+.message-div {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    align-items: center;
 }
 
 
@@ -33,7 +40,10 @@
 .post-form input{
     margin: 10px;
 }
-
+.post-form textarea
+{
+    margin: 10px;
+}
 
 /* edit.ejs layout style */
 .edit-body-div {
