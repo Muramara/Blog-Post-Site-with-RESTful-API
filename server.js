@@ -9,9 +9,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
+let result = [];
+
 app.get("/", async (req,res) => {
     try {
         const response = await axios.get("http://localhost:1304");
+        console.log(response.data);
         res.render("index.ejs",{
             posts: response.data
         });
@@ -22,9 +25,21 @@ app.get("/", async (req,res) => {
     }
 });
 
+app.get("/post-form", (req,res) => {
+    try {
+        res.render("post.ejs");
+    } catch (error) {
+        res.render("failure.ejs",{
+            error: `There was an error getting the post form`
+        });
+    }
+});
 app.post("/post", async (req,res) => {
     try {
-        const response = await axios.post("http://localhost:1304/new");
+        const title = req.body.title;
+        const content = req.body.content;
+        const author = req.body.author;
+        await axios.post("http://localhost:1304/new/"+title+"/"+content+"/"+author);
         res.render("success.ejs",{
             message: `Post successfully recorded`
         });
@@ -55,7 +70,10 @@ app.post("/edit-form", (req,res) => {
 app.post("/edit", async (req,res) => {
     try {
         const id = parseInt(req.body.id);
-        const response = await axios.patch("http://localhost:1304/edit/"+id);
+        const title = req.body.title;
+        const content = req.body.content;
+        const author = req.body.author;
+        await axios.patch("http://localhost:1304/edit/"+id+"/"+title+"/"+content+"/"+author);
         res.render("success.ejs",{
             message: `Post successfully edited`
         });

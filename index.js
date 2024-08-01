@@ -20,32 +20,34 @@ app.get("/", (req,res) => {
     }
 });
 
-app.post("/new", (req,res) => {
+app.post("/new/:title/:content/:author", (req,res) => {
     try {
         const newPost = {
             id: posts.length + 1,
-            title: req.body.title,
-            content: req.body.content,
-            author: req.body.author
+            title: req.params.title,
+            content: req.params.content,
+            author: req.params.author
         };
         posts.push(newPost);
-        res.json(newPost);
+        res.json(posts);
     } catch (error) {
         res.json({error: `There was an error with posting`});
     }
 });
 
-app.patch("/edit/:id", (req,res) => {
+app.patch("/edit/:id/:title/:content/:author", (req,res) => {
     try {
         const id = parseInt(req.params.id);
-        const postToEdit = posts.find((post) => post.id === id);
+        console.log(req.params.title);
         const editedPost = {
             id: id,
-            title: req.body.title || postToEdit.title,
-            content: req.body.content || postToEdit.content,
-            author: req.body.author || postToEdit.author
+            title: req.params.title,
+            content: req.params.content,
+            author: req.params.author
         };
+        console.log(editedPost);
         const searchIndex = posts.findIndex((post) => post.id === id);
+        console.log(searchIndex);
         posts[searchIndex] = editedPost;
         res.json(posts[searchIndex]);
     } catch (error) {
