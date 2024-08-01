@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Site</title>
+</head>
+<a href="/post-form"><button>Make new post</button></a>
+<body>
+    <% if (locals.posts) { %>
+        <% for (let index = 0; index < posts.length; index++) { %>
+            <div class="blog-card">
+                <p class="title-card"><%= posts[index].title %></p>
+                <p class="content-card"><%= posts[index].content %></p>
+                <p class="author-card"><%= posts[index].author %></p>
+                <div class="blog-btn-card">
+                    <form action="/edit-form" method="get">
+                        <input type="text" name="title" value="<%= posts[index].title %>" hidden>
+                        <input type="text" name="content" value="<%= posts[index].content %>" hidden>
+                        <input type="text" name="author" value="<%= posts[index].author %>" hidden>
+                        <input type="submit" value="Edit" class="edit-btn">
+                    </form>
+                    <form action="/delete" method="post">
+                        <input type="text" name="title" value="<%= posts[index].title %>" hidden>
+                        <input type="text" name="content" value="<%= posts[index].content %>" hidden>
+                        <input type="text" name="author" value="<%= posts[index].author %>" hidden>
+                        <input type="submit" value="delete" class="delete-btn">
+                    </form>
+                </div>
+            </div>
+        <% } %>
+    <% } else { %>
+        h
+    <% } %>
+</body>
+</html>

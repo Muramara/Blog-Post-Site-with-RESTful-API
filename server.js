@@ -13,7 +13,7 @@ app.get("/", async (req,res) => {
     try {
         const response = await axios.get("http://localhost:1304");
         res.render("index.ejs",{
-            post: response.data
+            posts: response.data
         });
     } catch (error) {
         res.render("failure.ejs",{
