@@ -5,17 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog Site</title>
 </head>
-<body>
+<body class="index-body">
     <header><%- include("partials/header.ejs") %></header>
 
     <% if (locals.posts) { %>
-        <a href="/post-form" class="make-btn btn"><button>Make new post</button></a>
+        <a href="/post-form"><button class="make-btn btn">Make new post</button></a>
 
         <% for (let index = 0; index < posts.length; index++) { %>
             <div class="blog-card">
-                <p name="title-par" class="title-card"><strong>Title:</strong> <%= posts[index].title.toUpperCase() %></p>
-                <p class="content-card"><%= posts[index].content %></p>
-                <p class="author-card"><strong>Author:</strong> <%= posts[index].author %></p>
+                <p name="title-par" class="title-card txt"><strong>Title:</strong> <%= posts[index].title.toUpperCase() %></p>
+                <p class="content-card txt"><%= posts[index].content %></p>
+                <p class="author-card txt"><strong>Author:</strong> <%= posts[index].author %></p>
                 <div class="blog-btns-card">
                     <form method="post">
                         <input type="text" name="id" value="<%= posts[index].id %>" hidden>
@@ -31,22 +31,31 @@
     <% } %>
     <% if (locals.success) { %>
         <div class="message-div">
-            <div>
-                <p><%= message %></p>
-                <a href="/" class="return-btn btn"><button>Back to Homepage</button></a>
-            </div>
+            <% if (message === `Post successfully deleted`) { %>
+                <div class="negative">
+                    <div>
+                        <p><%= message %></p>
+                        <a href="/"><button class="return-btn btn">Back to Homepage</button></a>
+                    </div>
+                </div>
+            <% } else { %>
+                <div>
+                    <p><%= message %></p>
+                    <a href="/"><button class="return-btn btn">Back to Homepage</button></a>
+                </div>
+            <% } %>
         </div>
     <% } %>
     <% if (locals.failure) { %>
-        <div class="message-div">
+        <div class="message-div negative">
             <div>
                 <p><%= err %></p>
-                <a href="/" class="return-btn btn"><button>Back to Homepage</button></a>
+                <a href="/"><button class="return-btn btn">Back to Homepage</button></a>
             </div>
         </div>
     <% } %>
     <% if (locals.error) { %>
-        <div class="message-div">
+        <div class="message-div negative">
             <p><%= error %></p>
         </div>
     <% } %>

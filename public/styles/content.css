@@ -1,0 +1,63 @@
+/* index.ejs content styling */
+.index-body{
+    background-color: #8C3061;
+}
+.blog-card{
+    background-color: #C63C51;
+}
+.blog-card .txt {
+    background-color: #C63C51;
+}
+.edit-btn {
+    background-color: blue;
+}
+.delete-btn {
+    background-color: red;
+}
+.make-btn {
+    background-color: green;
+}
+.negative {
+    background-color: #C63C51;
+}
+
+
+/* post.ejs content styling */
+.post-body{
+    background-color: #36BA98;
+}
+.post-form{
+    background-color: #E76F51;
+}
+.post-form .txt {
+    background-color: #E9C46A;
+}
+.post-btn {
+    background-color: blue;
+}
+
+
+/* edit.ejs content styling */
+.edit-body{
+    background-color: #6EACDA;
+}
+.edit-form{
+    background-color: #03346E;
+}
+.edit-form .txt {
+    background-color: #E2E2B6;
+}
+
+
+/* general content styling */
+body {
+    color: white;
+    font-size: 1.5rem;
+}
+.btn {
+    color: white;
+}
+.return-btn {
+    background-color: black;
+    color: white;
+}

@@ -20,6 +20,13 @@
     height: 100vh;
     align-items: center;
 }
+.negative {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    align-items: center;
+}
 
 
 /* post.ejs layout style */
