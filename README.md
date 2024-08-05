@@ -23,5 +23,12 @@ of the website to the API. It also handles website navigation.
 ### 1.1.2 Front-end
 **index.ejs**
 
-This file displays the 
+This file displays the main page of the website, where all the posts are listed on their own 'cards' individual cards.
 
+***'insert post-card image here'***
+
+The **make new post** button redirects the user to the post page, where they should be able to create new posts. 
+
+The **edit** button redircets the user to the edit page where they are able to edit the post. The **delete** button 
+
+deletes that specific post on the card.
