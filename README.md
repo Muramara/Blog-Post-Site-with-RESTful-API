@@ -25,7 +25,7 @@ of the website to the API. It also handles website navigation.
 
 This file displays the main page of the website, where all the posts are listed on their own 'cards' individual cards.
 
-***'insert post-card image here'***
+
 
 The **make new post** button redirects the user to the post page, where they should be able to create new posts. 
 
