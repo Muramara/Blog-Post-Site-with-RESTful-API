@@ -31,7 +31,7 @@ app.get("/post-form", (req,res) => {
             posting: true
         });
     } catch (error) {
-        res.render("failure.ejs",{
+        res.render("index.ejs",{
             error: `There was an error getting the post form`
         });
     }
@@ -66,7 +66,7 @@ app.post("/edit-form", (req,res) => {
             }
         });
     } catch (error) {
-        res.render("failure.ejs",{
+        res.render("edit.ejs",{
             error: `There was error getting the edit form`
         });
     }
@@ -83,7 +83,7 @@ app.post("/edit", async (req,res) => {
             message: `Post successfully edited`
         });
     } catch (error) {
-        res.render("failure.ejs",{
+        res.render("edit.ejs",{
             failure: true,
             error: `There was an error editing the content`
         });
@@ -99,7 +99,7 @@ app.post("/delete", async (req,res) => {
             message: `Post successfully deleted`
         });
     } catch (error) {
-        res.render("failure.ejs",{
+        res.render("index.ejs",{
             failure: true,
             err: `There was an error deleting the content`
         });
