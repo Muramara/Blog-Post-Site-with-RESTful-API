@@ -9,21 +9,20 @@
                     <input class="title-input txt" type="text" name="title" value="<%= formData.title %>"><br>
                     <textarea class="content-input txt" name="content"><%= formData.content %></textarea>
                     <input class="author-input txt" type="text" name="author" value="<%= formData.author %>"><br>
-                    <input type="submit" value="Save" class="save-btn">
+                    <input type="submit" value="Save" class="save-btn btn">
                 </form>
             </div>
-        <% } %>
-        <div>
-            <% if (locals.success) { %>
-                <p><%= message %></p>
-                <a href="/"><button class="return-btn btn">Back to Homepage</button></a>
-            <% } %>
-            <% if (locals.failure) { %>
-                <div class="negative">
+        <% } else { %>
+            <div class="message-div">
+                <% if (locals.success) { %>
+                    <p><%= message %></p>
+                    <a href="/"><button class="return-btn btn">Back to Homepage</button></a>
+                <% } %>
+                <% if (locals.failure) { %>
                     <p><%= error %></p>
                     <a href="/"><button class="return-btn btn">Back to Homepage</button></a>
-                </div>
-            <% } %>
-        </div>
+                <% } %>
+            </div>
+        <% } %>
     </div>
 </body>

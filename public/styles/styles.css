@@ -1,0 +1,127 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.btn {
+    margin: 2px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+    background-color: #555;
+    transform: scale(1.05);
+}
+
+.make-btn {
+    margin-top: 50px;
+    margin-left: 50px;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.blog-card {
+    border: 2px solid black;
+    width: 500px;
+    margin: 20px;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: #C63C51;
+}
+
+.post-form, .edit-form {
+    border: solid 1px black;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 100px;
+}
+
+.post-form input, .post-form textarea, .edit-form input, .edit-form textarea {
+    margin-bottom: 20px;
+}
+
+textarea {
+    min-height: 100px;
+}
+
+.post-form input, .post-form textarea, .edit-form .txt, .edit-form input, .edit-form textarea {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    width: 90%;
+    font-size: 1rem;
+}
+
+.post-form input:focus, .post-form textarea:focus, .edit-form .txt:focus, .edit-form input:focus, .edit-form textarea:focus {
+    outline: none;
+    border-color: #6EACDA;
+    box-shadow: 0 0 5px rgba(110, 172, 218, 0.5);
+}
+
+:root {
+    --primary-color: #6EACDA;
+    --secondary-color: #03346E;
+    --accent-color: #E2E2B6;
+    --text-color: white;
+    --background-color: #8C3061;
+}
+
+body {
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+.blog-card, .btn {
+    transition: all 0.3s ease;
+}
+
+.main-page {
+    display: flex;
+    min-height: 100vh;
+}
+
+.main-page > div {
+    width: 50%;
+    margin: 0;
+}
+
+.message-div {
+    position: fixed;
+    top: 250px;
+    left: 500px;
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 1000;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .blog-card {
+        width: 90%;
+        margin: 10px auto;
+    }
+
+    .post-form, .edit-form {
+        width: 90%;
+        height: auto;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+}

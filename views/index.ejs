@@ -9,49 +9,46 @@
     <header><%- include("partials/header.ejs") %></header>
 
     <% if (locals.posts) { %>
-        <a href="/post-form"><button class="make-btn btn">Make new post</button></a>
-
-        <% for (let index = 0; index < posts.length; index++) { %>
-            <div class="blog-card">
-                <p name="title-par" class="title-card txt"><strong>Title:</strong> <%= posts[index].title.toUpperCase() %></p>
-                <p class="content-card txt"><%= posts[index].content %></p>
-                <p class="author-card txt"><strong>Author:</strong> <%= posts[index].author %></p>
-                <div class="blog-btns-card">
-                    <form method="post">
-                        <input type="text" name="id" value="<%= posts[index].id %>" hidden>
-                        <input type="text" name="title" value="<%= posts[index].title %>" hidden>
-                        <input type="text" name="content" value="<%= posts[index].content %>" hidden>
-                        <input type="text" name="author" value="<%= posts[index].author %>" hidden>
-                        <input type="submit" value="Edit" class="edit-btn btn" formaction="/edit-form">
-                        <input type="submit" value="Delete" class="delete-btn btn" formaction="/delete">
-                    </form>
-                </div>
+        <div class="main-page">
+            <div>
+                <a href="/post-form"><button class="make-btn btn">Make new post</button></a>
             </div>
-        <% } %>
+            <div>
+                <% for (let index = 0; index < posts.length; index++) { %>
+                    <div class="blog-card">
+                        <p name="title-par" class="title-card txt"><strong>Title:</strong> <%= posts[index].title.toUpperCase() %></p>
+                        <p class="content-card txt"><%= posts[index].content %></p>
+                        <p class="author-card txt"><strong>Author:</strong> <%= posts[index].author %></p>
+                        <div class="blog-btns-card">
+                            <form method="post">
+                                <input type="text" name="id" value="<%= posts[index].id %>" hidden>
+                                <input type="text" name="title" value="<%= posts[index].title %>" hidden>
+                                <input type="text" name="content" value="<%= posts[index].content %>" hidden>
+                                <input type="text" name="author" value="<%= posts[index].author %>" hidden>
+                                <input type="submit" value="Edit" class="edit-btn btn" formaction="/edit-form">
+                                <input type="submit" value="Delete" class="delete-btn btn" formaction="/delete">
+                            </form>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+        </div>
     <% } %>
     <% if (locals.success) { %>
         <div class="message-div">
             <% if (message === `Post successfully deleted`) { %>
-                <div class="negative">
-                    <div>
-                        <p><%= message %></p>
-                        <a href="/"><button class="return-btn btn">Back to Homepage</button></a>
-                    </div>
-                </div>
+                <p><%= message %></p>
+                <a href="/"><button class="return-btn btn">Back to Homepage</button></a>
             <% } else { %>
-                <div>
-                    <p><%= message %></p>
-                    <a href="/"><button class="return-btn btn">Back to Homepage</button></a>
-                </div>
+                <p><%= message %></p>
+                <a href="/"><button class="return-btn btn">Back to Homepage</button></a>
             <% } %>
         </div>
     <% } %>
     <% if (locals.failure) { %>
         <div class="message-div negative">
-            <div>
-                <p><%= err %></p>
-                <a href="/"><button class="return-btn btn">Back to Homepage</button></a>
-            </div>
+            <p><%= err %></p>
+            <a href="/"><button class="return-btn btn">Back to Homepage</button></a>
         </div>
     <% } %>
     <% if (locals.error) { %>

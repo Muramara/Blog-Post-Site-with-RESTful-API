@@ -11,18 +11,18 @@
                 <input type="submit" value="Post" class="post-btn btn">
             </form>
         </div>
-    <% } %>
-    <div>
-        <% if (locals.success) { %>
-            <p><%= message %></p>
-            <a href="/"><button class="return-btn btn">Back to Homepage</button></a>
-        <% } %>
-        <% if (locals.failure) { %>
-            <div class="negative">
+    <% } else { %>
+        <div class="message-div">
+            <% if (locals.success) { %>
+                <p><%= message %></p>
+                <a href="/"><button class="return-btn btn">Back to Homepage</button></a>
+            <% } %>
+            <% if (locals.failure) { %>
                 <p><%= error %></p>
                 <a href="/"><button class="return-btn btn">Back to Homepage</button></a>
-            </div>
-        <% } %>
-    </div>
+            <% } %>
+        </div>
+    <% } %>
+    
 </div>
 </body>
